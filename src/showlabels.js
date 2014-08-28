@@ -47,6 +47,9 @@ Util.augment(ShowLabels,{
     if(!labels.items){
     	labels.items = [];
     }
+    if(labels.animate){
+      labels.animate = _self.get('animate');
+    }
 
     labelsGroup = _self.addGroup(Labels,labels);
     _self.set('labelsGroup',labelsGroup);
