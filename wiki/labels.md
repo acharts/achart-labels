@@ -1,8 +1,30 @@
-# Demo
+# 多文本控件
 
 ---
 
-## Normal usage
+显示操作多个文本
+
+---
+
+
+## 目录
+
+  * 简介
+  * 创建多个文本
+  * 创建多个Html文本
+  * 重新设置多个文本
+
+### 简介
+
+  * 多文本控件，可以非常方便的创建多个样式统一的文本，同时保留单个自定义样式
+  * 多文本控件支持变化时统一动画功能
+  * 多文本控件支持Html文本
+
+### 创建多个文本
+
+  * 直接通过addGroup(Labels,cfg) 的方式添加多个文本
+  * 在items中直接指定多个文本的配置信息和坐标信息
+
 
 ````html
 
@@ -48,9 +70,12 @@ seajs.use(['index','achart-canvas'], function(Labels,Canvas) {
 });
 ````
 
+### 创建html文本
 
-## html labels
-
+  * 通过custom=true创建自定义html文本
+  * 通过html设置容器的模板，模板上必须存在 class="ac-labels" 的样式
+  * 通过itemTpl来设置单个文本的模板
+  * renderer 可以格式化文本
 
 
 ````html
@@ -93,68 +118,7 @@ seajs.use(['index','achart-canvas'], function(Labels,Canvas) {
 });
 ````
 
+### 重新设置文本
 
-## show labels mixin
-
-
-
-````html
-
-<div id="c3"></div>
-
-````
-
-````javascript
-seajs.use(['index','achart-canvas','achart-util','achart-plot'], function(Labels,Canvas,Util,Plot) {
-  
-  var canvas = new Canvas({
-    id : 'c3',
-    width : 500,
-    height : 200
-  });
-
-  var A = function(cfg){
-    A.superclass.constructor.call(this,cfg);
-  };
-
-  Util.extend(A,Plot.Item);
-
-  Util.mixin(A,[Labels.ShowLabels]);
-  
-  Util.augment(A,{
-
-    renderUI : function(){
-      A.superclass.renderUI.call(this);
-      this.renderLabels(); //调用入口文件
-    },
-    remove : function(){
-      this.removeLabels();//清理文本
-      A.superclass.remove.call(this);
-    }
-
-  });
-
-  var a = canvas.addGroup(A,{
-      labels : {
-        items : [
-          {x : 10,y : 20,text : "1"},
-          {x : 10,y : 40,text : "2"},
-          {x : 10,y : 60,text : "3"},
-          {x : 10,y : 80,text : "4"},
-          {x : 10,y : 100,text : "5",font : "10px Arial",stroke : "red"},
-          {x : 10,y : 120,text : "6"},
-          {x : 10,y : 140,text : "7"},
-          {x : 10,y : 160,text : "8"}
-        ],
-        label : {
-          font : '20px/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif',
-          stroke : '#333',
-          x : 10,
-          y : 10,
-          rotate : 90
-        }
-      }
-    });
-
-});
-````
+  * changeLabel(label,item) 可以单个更改文本，如果animate:true，则触发动画
+  * setItems(items) 可以整体替换文本

@@ -39,14 +39,34 @@ Labels.ATTRS = {
 	 */
 	renderer : null,
 
+	/**
+	 * 是否自定义显示label
+	 * @type {Boolean}
+	 */
 	custom : false,
 
+	/**
+	 * custom : true时使用的容器的模板 ,必须存在 class = "ac-labels "
+	 * @type {String}
+	 */
 	html : '<div class="ac-labels" style="position:absolute;top:0;left:0;"></div>',
 
+	/**
+	 * custom =true时，单个label的模板，必须存在 class = "ac-label"
+	 * @type {String}
+	 */
 	itemTpl : '<div class="ac-label" style="position:absolute;">{text}</div>',
 
+	/**
+	 * 改变时是否执行动画
+	 * @type {Boolean}
+	 */
 	animate : true,
-	
+		
+	/**
+	 * 执行动画的时间
+	 * @type {Number}
+	 */
 	duration : 400
 
 };
@@ -147,7 +167,11 @@ Util.augment(Labels,{
 			return _self.get('children');
 		}
 	},
-	//更改label
+	/**
+	 * 更改label
+	 * @param  {Chart.Canvas.Shape.Label} label [description]
+	 * @param  {Object} item  [description]
+	 */
 	changeLabel : function(label,item){
 		var _self = this,
 			custom = _self.get('custom'),

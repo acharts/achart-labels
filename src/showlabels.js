@@ -47,7 +47,7 @@ Util.augment(ShowLabels,{
     if(!labels.items){
     	labels.items = [];
     }
-    if(labels.animate){
+    if(labels.animate == null){
       labels.animate = _self.get('animate');
     }
 

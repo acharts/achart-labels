@@ -170,6 +170,11 @@ describe('test custom labels',function(){
     //expect(label.attr('x')).to.be(110);
   });
 
+  it('remove',function(){
+    labels.remove();
+    expect(customDiv.childNodes.length).to.be(0);
+  });
+
 });
 
 describe('show labels',function(){
@@ -219,13 +224,18 @@ describe('show labels',function(){
   });
 
   it('reset',function(){
+    var count = labelsGroup.getCount();
+    a.resetLabels(null);
+
+    expect(labelsGroup.getCount()).to.be(count);
+
     var items = [{x : 10,y : 20,text : "一"},
           {x : 10,y : 40,text : "二"},
           {x : 10,y : 60,text : "三"},
           {x : 10,y : 80,text : "四"},
           {x : 10,y : 100,text : "五",font : "10px Arial",stroke : "red"},
           {x : 10,y : 120,text : "六"},
-          {x : 10,y : 140,text : "七"}];
+          {x : 10,y : 140,text : null}];
     a.resetLabels(items);
 
 
@@ -233,11 +243,26 @@ describe('show labels',function(){
 
   });
 
+  it('reset back',function(){
+    var items = [ {x : 10,y : 20,text : "1"},
+          {x : 10,y : 40,text : "2"},
+          {x : 10,y : 60,text : "3"},
+          {x : 10,y : 80,text : "4"},
+          {x : 10,y : 100,text : "5",font : "10px Arial",stroke : "red"},
+          {x : 10,y : 120,text : "6"},
+          {x : 10,y : 140,text : "7"},
+          {x : 10,y : 160,text : "8"}];
+    a.resetLabels(items);
+
+
+    expect(labelsGroup.getCount()).to.be(items.length);  
+  });
+
   it('change',function(){
     var count = labelsGroup.getCount();
     var item = {x : 10,y : 183};
 
-    a.addLabel('新的',item);
+    var label = a.addLabel('新的',item);
     expect(labelsGroup.getCount()).to.be(count + 1);
 
   });
