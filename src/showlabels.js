@@ -17,6 +17,9 @@ function removeLabel(label){
 /**
  * @class Chart.ShowLabels
  * 内部显示文本集合
+ *
+ *  - <a href="http://spmjs.io/docs/achart-labels/#showlabels" target="_blank">文档</a>
+ *  - <a href="http://spmjs.io/docs/achart-labels/wiki/showlabels.html" target="_blank">wiki</a>
  */
 var ShowLabels = function(){
 

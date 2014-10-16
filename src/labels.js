@@ -12,7 +12,11 @@ var
 /**
  * @class Chart.Labels
  * 文本集合
- * @extends Chart.PlotItem
+ * 
+ *  - <a href="http://spmjs.io/docs/achart-labels/" target="_blank">文档</a>
+ *  - <a href="http://spmjs.io/docs/achart-labels/wiki/" target="_blank">wiki</a>
+ *  
+ * @extends Chart.Plot.Item
  */
 var Labels = function(cfg){
 	Labels.superclass.constructor.call(this,cfg);
