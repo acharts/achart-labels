@@ -1,6 +1,6 @@
 {
   "name": "achart-labels",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": ["acharts","labels"],
   "homepage": "https://github.com/acharts/achart-labels",
@@ -16,8 +16,8 @@
   "spm": {
     "main": "index.js",
     "dependencies": {
-      "achart-util" : "1.0.0",
-      "achart-plot" : "1.0.0"
+      "achart-util" : "1.1.0",
+      "achart-plot" : "1.1.0"
     },
     "devDependencies": {
       "expect.js": "0.3.1",
