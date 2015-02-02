@@ -1,6 +1,6 @@
 {
   "name": "achart-labels",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "keywords": ["acharts","labels"],
   "homepage": "https://github.com/acharts/achart-labels",
@@ -23,7 +23,7 @@
       "expect.js": "0.3.1",
       "sinon" : "1.6.0",
       "jquery" : "1.9.1",
-      "achart-canvas" : "1.0.0"
+      "achart-canvas" : "~1.1.1"
     },
     "tests": "tests/*.js"
   }
